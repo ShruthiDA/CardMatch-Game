@@ -11,7 +11,7 @@ import SwiftUI
 struct CardMatchGameApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SplashView()
         }
     }
 }
