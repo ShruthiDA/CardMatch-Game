@@ -15,10 +15,12 @@ struct GameView: View {
     var viewModel: GameVM
     
     @State var showingAlert: Bool = false
+    @State var showingLevelAlert: Bool = false
+    
     @State var selectedAspectRatio: CGSize = CGSize(width: 5, height: 7)
     @State var selectedMinimumWidth : CGFloat = 100
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
-
+    
     var tapAudioPlayer: AVAudioPlayer!
     
     @State var presentAlert = false
@@ -27,18 +29,18 @@ struct GameView: View {
     var body: some View {
         
         ScrollView {
-
             
-        VStack {
-                    
-            Spacer()
-            ZStack {
+            
+            VStack {
                 
+                Spacer()
+                ZStack {
+                    
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: selectedMinimumWidth))]) {
                         
                         
                         ForEach(viewModel.matchGame.cardList){ cardItem in
-                           
+                            
                             MatchingCardView(cardColor: viewModel.cardsColor, card: cardItem)
                                 .onTapGesture {
                                     print("count \(viewModel.matchGame.cardList.count)")
@@ -52,35 +54,44 @@ struct GameView: View {
                                 }.aspectRatio(selectedAspectRatio, contentMode:.fit)
                         }
                     }.padding(20)
-                
-                
-                if viewModel.showSuccessAlert {
-
-                    CustomAlert(presentAlert: $viewModel.showSuccessAlert, alertType: .success, isShowVerticalButtons: true, leftButtonAction: {
-                        print("Play again......1")
-                        viewModel.showSuccessAlert = false
-                        viewModel.updateMatchGame(level: viewModel.inputLevel)
-                    }, rightButtonAction: {
-                        print("right button......2")
-                        viewModel.showSuccessAlert = false
-                        self.mode.wrappedValue.dismiss()
-                        viewModel.updateMatchGame(level: .EASY)
-                    })
                     
+                    
+                    if viewModel.showSuccessAlert {
+                        
+                        CustomAlert(presentAlert: $viewModel.showSuccessAlert, alertType: .success, isShowVerticalButtons: true, leftButtonAction: {
+                            print("Play again......1")
+                            viewModel.showSuccessAlert = false
+                            selectedAspectRatio = CGSize(width: 5, height: 7)
+                            selectedMinimumWidth = 60
+                            viewModel.updateMatchGame(level: .HARD)
+                        }, rightButtonAction: {
+                            print("right button......2")
+                            viewModel.showSuccessAlert = false
+                            self.mode.wrappedValue.dismiss()
+                            viewModel.updateMatchGame(level: .EASY)
+                        })
+                        
+                        
+                    }
+                    
+                    if showingLevelAlert {
+                        
+                        GameLevelAlert
+                        
+                        
+                    }
                     
                 }
+                Spacer()
+                
                 
             }
-            Spacer()
             
-        
-            }
             
-
         }.navigationBarBackButtonHidden(true)
             .navigationBarItems(leading: Button(action : {
                 self.mode.wrappedValue.dismiss()
-               // self.viewModel.updateMatchGame(level: .EASY)
+                self.viewModel.updateMatchGame(level: .EASY)
             }){
                 Image(systemName: "chevron.left")
             }).navigationBarTitleDisplayMode(.inline)
@@ -102,36 +113,66 @@ struct GameView: View {
     var NewGameButton : some View {
         
         Button(action: {
-            if(!viewModel.showSuccessAlert){
-                showingAlert = true
+            if(!showingLevelAlert){
+                showingLevelAlert = true
             }
         }){
             Text("Restart").underline()
-        }.alert("Game Level", isPresented: $showingAlert) {
+        }
+    }
+    
+    
+    var GameLevelAlert : some View {
+            
+        ZStack {
+            
+            // faded background
+            Color.black.opacity(0.75)
+                .edgesIgnoringSafeArea(.all)
+            
+            
+            VStack {
+                
+                Text("Selecte Game level").padding(.bottom, 30).font(.title)
                 Button("Easy") {
                     print("easy selelcted")
                     selectedAspectRatio = CGSize(width: 5, height: 7)
                     selectedMinimumWidth = 100
                     //viewModel.inputLevel = .EASY
                     viewModel.updateMatchGame(level: .EASY)
+                    showingLevelAlert = false
                 }
+                Divider()
+                          .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 0.5)
+                          .padding(.all, 0)
                 Button("Medium") {
                     print("medium selelcted")
                     selectedAspectRatio = CGSize(width: 5, height: 7)
                     selectedMinimumWidth = 75
                     //viewModel.inputLevel = .MEDIUM
                     viewModel.updateMatchGame(level: .MEDIUM)
+                    showingLevelAlert = false
                 }
+                Divider()
+                          .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 0.5)
+                          .padding(.all, 0)
                 Button("Hard") {
                     print("no tap hard selelcted")
+                    viewModel.showSuccessAlert = false
                     selectedAspectRatio = CGSize(width: 5, height: 7)
                     selectedMinimumWidth = 60
-                    //viewModel.inputLevel = .HARD
                     viewModel.updateMatchGame(level: .HARD)
+                    showingLevelAlert = false
                 }
-            }
+                
+            }  .frame(width: 300, height: 300)
+                .background(
+                    Color.white
+                )
+                .cornerRadius(15)
+            
+        }
     }
-
 }
 
 struct MatchingCardView : View {
