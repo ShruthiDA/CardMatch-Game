@@ -19,11 +19,14 @@ struct GameView: View {
     
     @State var selectedAspectRatio: CGSize = CGSize(width: 5, height: 7)
     @State var selectedMinimumWidth : CGFloat = 100
-    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
-    var tapAudioPlayer: AVAudioPlayer!
+    @State var tapAudioPlayer: AVAudioPlayer!
+    @State var audioPlayer: AVAudioPlayer!
     
     @State var presentAlert = false
+    
+    @AppStorage("isSoundOn") private var isSoundEnabled = true
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
     
     var body: some View {
@@ -45,6 +48,9 @@ struct GameView: View {
                                 .onTapGesture {
                                     print("count \(viewModel.matchGame.cardList.count)")
                                     if (!cardItem.isMatched){
+                                        if(isSoundEnabled){
+                                            tapAudioPlayer.play()
+                                        }
                                         viewModel.chooseCard(card: cardItem)
                                         let isdone = viewModel.isGameFinished()
                                         print("is game finished \(isdone)")
@@ -60,9 +66,7 @@ struct GameView: View {
                         
                         CustomAlert(presentAlert: $viewModel.showSuccessAlert, alertType: .success, isShowVerticalButtons: true, leftButtonAction: {
                             viewModel.showSuccessAlert = false
-                            selectedAspectRatio = CGSize(width: 5, height: 7)
-                            selectedMinimumWidth = 60
-                            viewModel.updateMatchGame(level: .HARD)
+                            viewModel.updateMatchGame(level: viewModel.inputLevel)
                         }, rightButtonAction: {
                             viewModel.showSuccessAlert = false
                             self.mode.wrappedValue.dismiss()
@@ -95,7 +99,12 @@ struct GameView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NewGameButton
                 }
-            }.foregroundColor(Color(hex: "#575859"))
+            }.foregroundColor(Color(hex: "#575859")).onAppear{
+                let matchedSound = Bundle.main.path(forResource: "success", ofType: "mp3")
+                let tapSound = Bundle.main.path(forResource: "click-sound", ofType: "mp3")
+                audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: matchedSound!))
+                tapAudioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: tapSound!))
+            }
         
         
     }
@@ -168,7 +177,6 @@ struct MatchingCardView : View {
     var cardColor: String
     var card: GameModel<String>.GameCard
     @State var attempts: Int = 0
-    @State var tapAudioPlayer: AVAudioPlayer!
     @State var audioPlayer: AVAudioPlayer!
     @AppStorage("isSoundOn") private var isSoundEnabled = true
     
@@ -186,16 +194,12 @@ struct MatchingCardView : View {
                 
                 Text(card.cardIcon ?? "").font(.system(size: min(geometry.size.width, geometry.size.height)*0.8))  .rotationEffect(Angle.degrees(card.isMatched ? 360 : 0))
                     .animation(animation, value: UUID())
-                if (card.isMatched ) {
-                    let _ = print("Card matched...............")
+                if (card.isFaceUp && card.isMatched &&  isSoundEnabled) {
+                    let _ = print("Card matched")
                     let b = self.audioPlayer.play()
                 }
                 
                 if (card.isFaceUp || card.isMatched) {
-                    if (!card.isMatched ){
-                        let _ = print("Tap-------------------")
-                        let b = self.tapAudioPlayer.play()
-                    }
                     shape.strokeBorder(lineWidth: 3).foregroundColor(Color(hex: cardColor))
                 } else {
                     shape.foregroundColor(Color(hex: cardColor))
@@ -203,10 +207,7 @@ struct MatchingCardView : View {
             }.padding(2).animation(animation, value: UUID())
         }.onAppear {
             let matchedSound = Bundle.main.path(forResource: "success", ofType: "mp3")
-            let tapSound = Bundle.main.path(forResource: "click-sound", ofType: "mp3")
             self.audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: matchedSound!))
-            self.tapAudioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: tapSound!))
-            
         }
         
     }
