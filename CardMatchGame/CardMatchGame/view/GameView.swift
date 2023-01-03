@@ -59,34 +59,25 @@ struct GameView: View {
                     if viewModel.showSuccessAlert {
                         
                         CustomAlert(presentAlert: $viewModel.showSuccessAlert, alertType: .success, isShowVerticalButtons: true, leftButtonAction: {
-                            print("Play again......1")
                             viewModel.showSuccessAlert = false
                             selectedAspectRatio = CGSize(width: 5, height: 7)
                             selectedMinimumWidth = 60
                             viewModel.updateMatchGame(level: .HARD)
                         }, rightButtonAction: {
-                            print("right button......2")
                             viewModel.showSuccessAlert = false
                             self.mode.wrappedValue.dismiss()
                             viewModel.updateMatchGame(level: .EASY)
                         })
                         
-                        
                     }
                     
                     if showingLevelAlert {
-                        
                         GameLevelAlert
-                        
-                        
                     }
                     
                 }
                 Spacer()
-                
-                
             }
-            
             
         }.navigationBarBackButtonHidden(true)
             .navigationBarItems(leading: Button(action : {
@@ -123,7 +114,7 @@ struct GameView: View {
     
     
     var GameLevelAlert : some View {
-            
+        
         ZStack {
             
             // faded background
@@ -133,39 +124,36 @@ struct GameView: View {
             
             VStack {
                 
-                Text("Selecte Game level").padding(.bottom, 30).font(.title)
+                Text("Select Game level").padding(.bottom, 30).font(.title2).foregroundColor(.black)
                 Button("Easy") {
                     print("easy selelcted")
                     selectedAspectRatio = CGSize(width: 5, height: 7)
                     selectedMinimumWidth = 100
-                    //viewModel.inputLevel = .EASY
                     viewModel.updateMatchGame(level: .EASY)
                     showingLevelAlert = false
                 }
                 Divider()
-                          .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 0.5)
-                          .padding(.all, 0)
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 0.5)
+                    .padding(.all, 0)
                 Button("Medium") {
                     print("medium selelcted")
                     selectedAspectRatio = CGSize(width: 5, height: 7)
                     selectedMinimumWidth = 75
-                    //viewModel.inputLevel = .MEDIUM
                     viewModel.updateMatchGame(level: .MEDIUM)
                     showingLevelAlert = false
                 }
                 Divider()
-                          .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 0.5)
-                          .padding(.all, 0)
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 0.5)
+                    .padding(.all, 0)
                 Button("Hard") {
-                    print("no tap hard selelcted")
-                    viewModel.showSuccessAlert = false
+                    print("hard selelcted")
                     selectedAspectRatio = CGSize(width: 5, height: 7)
                     selectedMinimumWidth = 60
                     viewModel.updateMatchGame(level: .HARD)
                     showingLevelAlert = false
                 }
                 
-            }  .frame(width: 300, height: 300)
+            }  .frame(width: 300, height: 250)
                 .background(
                     Color.white
                 )
@@ -197,22 +185,22 @@ struct MatchingCardView : View {
                 let shape = RoundedRectangle(cornerRadius: 10)
                 
                 Text(card.cardIcon ?? "").font(.system(size: min(geometry.size.width, geometry.size.height)*0.8))  .rotationEffect(Angle.degrees(card.isMatched ? 360 : 0))
-                    .animation(animation)
+                    .animation(animation, value: UUID())
                 if (card.isMatched ) {
-                    let _ = print("Card matcheddddd")
+                    let _ = print("Card matched...............")
                     let b = self.audioPlayer.play()
                 }
-                    
+                
                 if (card.isFaceUp || card.isMatched) {
                     if (!card.isMatched ){
-                        let _ = print("Tap")
+                        let _ = print("Tap-------------------")
                         let b = self.tapAudioPlayer.play()
                     }
                     shape.strokeBorder(lineWidth: 3).foregroundColor(Color(hex: cardColor))
                 } else {
                     shape.foregroundColor(Color(hex: cardColor))
                 }
-            }.padding(2).animation(animation)
+            }.padding(2).animation(animation, value: UUID())
         }.onAppear {
             let matchedSound = Bundle.main.path(forResource: "success", ofType: "mp3")
             let tapSound = Bundle.main.path(forResource: "click-sound", ofType: "mp3")
@@ -223,18 +211,18 @@ struct MatchingCardView : View {
         
     }
     
-   
+    
 }
 
 
 struct GameView_Previews: PreviewProvider {
-
+    
     static var previews: some View {
         let gm = GameVM(emojiArray: ["🇦🇫", "🇦🇽", "🇦🇱", "🇩🇿", "🇦🇸", "🇦🇩", "🇦🇴", "🇦🇮", "🇦🇶", "🇦🇬", "🇦🇷", "🇦🇲", "🇦🇺","🇦🇼", "🇦🇹", "🇦🇿", "🇧🇸", "🇧🇩", "🇧🇭"] , cardsColor:"CAE7E3" )
         GameView(viewModel: gm)
         GameView(viewModel: gm)
     }
-
+    
 }
 
 extension Color {
