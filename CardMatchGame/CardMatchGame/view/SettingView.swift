@@ -15,7 +15,7 @@ struct SettingView: View {
     
     @State var selectedTheme: ThemeColorSet? = ThemeColorSet(id: 1, c1: "FF8b88",c2: "99B898",c3: "EDE574",c4: "FF847C",c5: "FECEAB")
     
-    @AppStorage("selectedThemeID") private var themeID = 1
+    @AppStorage("selectedThemeID") private var themeID = 2
     
     //Save sound setting in user default; AppStorage is property wrapper for user default
     @AppStorage("isSoundOn") private var isSoundEnabled = true

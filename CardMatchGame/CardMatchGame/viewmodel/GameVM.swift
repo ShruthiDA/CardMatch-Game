@@ -25,14 +25,13 @@ class GameVM: ObservableObject {
        
         print("Game emojiArray \(emojiArray)")
         print("Game cardsColor \(cardsColor)")
-        self.iconArray = emojiArray
+        self.iconArray = emojiArray.shuffled()
         self.cardsColor = cardsColor
         updateMatchGame(level: inputLevel)
-
     }
     
     
-    func updateMatchGame(level: GameLevel){
+    func updateMatchGame(level: GameLevel) {
         print("calling update match game   \(level)")
         var cardNo = 0
         inputLevel = level
