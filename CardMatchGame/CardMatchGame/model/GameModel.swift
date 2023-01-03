@@ -39,24 +39,20 @@ struct GameModel<CardContentType> where CardContentType: Equatable {
     }
     
     init(noOfCards: Int, cardContent : (Int) -> CardContentType){
-        print("1. Number of cards init - \(noOfCards)")
         cardList = Array()
         for i in 0..<noOfCards {
             cardList.append(GameCard(id: (i*2), cardIcon: cardContent(i)))
             cardList.append(GameCard(id: (i*2+1), cardIcon: cardContent(i)))
         }
-        print("card list is updateddddd   1 \(cardList.count)")
         cardList.shuffle()
     }
     
     init(noOfCards: Int){
-        print("2. Number of cards init - \(noOfCards)")
         cardList = Array()
         for i in 0..<noOfCards {
             cardList.append(GameCard(id: (i*2)))
             cardList.append(GameCard(id: (i*2+1)))
         }
-        print("card list is updateddddd  2  \(cardList.count)")
         cardList.shuffle()
     }
     
