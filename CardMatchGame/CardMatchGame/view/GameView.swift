@@ -31,80 +31,82 @@ struct GameView: View {
     
     var body: some View {
         
-        ScrollView {
+        GeometryReader { geometry in
             
-            
-            VStack {
+            ScrollView (.vertical){
                 
-                Spacer()
-                ZStack {
+                
+                VStack {
                     
-                    LazyVGrid(columns: [GridItem(.adaptive(minimum: selectedMinimumWidth))]) {
+                    Spacer()
+                    ZStack {
                         
-                        
-                        ForEach(viewModel.matchGame.cardList){ cardItem in
+                        LazyVGrid(columns: [GridItem(.adaptive(minimum: selectedMinimumWidth))]) {
                             
-                            MatchingCardView(cardColor: viewModel.cardsColor, card: cardItem)
-                                .onTapGesture {
-                                    print("count \(viewModel.matchGame.cardList.count)")
-                                    if (!cardItem.isMatched){
-                                        if(isSoundEnabled){
-                                            tapAudioPlayer.play()
+                            
+                            ForEach(viewModel.matchGame.cardList){ cardItem in
+                                
+                                MatchingCardView(cardColor: viewModel.cardsColor, card: cardItem)
+                                    .onTapGesture {
+                                        if (!cardItem.isMatched){
+                                            if(isSoundEnabled){
+                                                tapAudioPlayer.play()
+                                            }
+                                            viewModel.chooseCard(card: cardItem)
+                                            let isdone = viewModel.isGameFinished()
+                                            
                                         }
-                                        viewModel.chooseCard(card: cardItem)
-                                        let isdone = viewModel.isGameFinished()
-                                        print("is game finished \(isdone)")
-                                        print("is game finished \(viewModel.matchGame.cardList.count)")
-                                        
-                                    }
-                                }.aspectRatio(selectedAspectRatio, contentMode:.fit)
+                                    }.aspectRatio(selectedAspectRatio, contentMode:.fit)
+                            }
+                        }.padding(20)
+                        
+                        
+                        if viewModel.showSuccessAlert {
+                            
+                            CustomAlert(presentAlert: $viewModel.showSuccessAlert, alertType: .success, isShowVerticalButtons: true, leftButtonAction: {
+                                viewModel.showSuccessAlert = false
+                                viewModel.updateMatchGame(level: viewModel.inputLevel)
+                            }, rightButtonAction: {
+                                viewModel.showSuccessAlert = false
+                                self.mode.wrappedValue.dismiss()
+                                viewModel.updateMatchGame(level: .EASY)
+                            })
+                            
                         }
-                    }.padding(20)
-                    
-                    
-                    if viewModel.showSuccessAlert {
                         
-                        CustomAlert(presentAlert: $viewModel.showSuccessAlert, alertType: .success, isShowVerticalButtons: true, leftButtonAction: {
-                            viewModel.showSuccessAlert = false
-                            viewModel.updateMatchGame(level: viewModel.inputLevel)
-                        }, rightButtonAction: {
-                            viewModel.showSuccessAlert = false
-                            self.mode.wrappedValue.dismiss()
-                            viewModel.updateMatchGame(level: .EASY)
-                        })
+                        if showingLevelAlert {
+                            GameLevelAlert
+                        }
                         
                     }
-                    
-                    if showingLevelAlert {
-                        GameLevelAlert
+                    Spacer()
+                }
+                .frame(width: geometry.size.width)      // Make the scroll view full-width
+                .frame(minHeight: geometry.size.height) // Set the content’s min height to the parent
+                
+            }.navigationBarBackButtonHidden(true)
+                .navigationBarItems(leading: Button(action : {
+                    self.mode.wrappedValue.dismiss()
+                    self.viewModel.updateMatchGame(level: .EASY)
+                }){
+                    Image(systemName: "chevron.left")
+                }).navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        HStack {
+                            Text("Memory Match").font(.title)
+                        }
                     }
-                    
-                }
-                Spacer()
-            }
-            
-        }.navigationBarBackButtonHidden(true)
-            .navigationBarItems(leading: Button(action : {
-                self.mode.wrappedValue.dismiss()
-                self.viewModel.updateMatchGame(level: .EASY)
-            }){
-                Image(systemName: "chevron.left")
-            }).navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    HStack {
-                        Text("Memory Match").font(.title)
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        NewGameButton
                     }
+                }.foregroundColor(Color(hex: "#575859")).onAppear{
+                    let matchedSound = Bundle.main.path(forResource: "success", ofType: "mp3")
+                    let tapSound = Bundle.main.path(forResource: "click-sound", ofType: "mp3")
+                    audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: matchedSound!))
+                    tapAudioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: tapSound!))
                 }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NewGameButton
-                }
-            }.foregroundColor(Color(hex: "#575859")).onAppear{
-                let matchedSound = Bundle.main.path(forResource: "success", ofType: "mp3")
-                let tapSound = Bundle.main.path(forResource: "click-sound", ofType: "mp3")
-                audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: matchedSound!))
-                tapAudioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: tapSound!))
-            }
+        }
         
         
     }
@@ -189,13 +191,12 @@ struct MatchingCardView : View {
         
         GeometryReader { geometry in
             ZStack(alignment: .center) {
-                let _ = print("Card is - \(card)")
+                
                 let shape = RoundedRectangle(cornerRadius: 10)
                 
                 Text(card.cardIcon ?? "").font(.system(size: min(geometry.size.width, geometry.size.height)*0.8))  .rotationEffect(Angle.degrees(card.isMatched ? 360 : 0))
                     .animation(animation, value: UUID())
                 if (card.isFaceUp && card.isMatched &&  isSoundEnabled) {
-                    let _ = print("Card matched")
                     let b = self.audioPlayer.play()
                 }
                 
@@ -220,7 +221,6 @@ struct GameView_Previews: PreviewProvider {
     
     static var previews: some View {
         let gm = GameVM(emojiArray: ["🇦🇫", "🇦🇽", "🇦🇱", "🇩🇿", "🇦🇸", "🇦🇩", "🇦🇴", "🇦🇮", "🇦🇶", "🇦🇬", "🇦🇷", "🇦🇲", "🇦🇺","🇦🇼", "🇦🇹", "🇦🇿", "🇧🇸", "🇧🇩", "🇧🇭"] , cardsColor:"CAE7E3" )
-        GameView(viewModel: gm)
         GameView(viewModel: gm)
     }
     
