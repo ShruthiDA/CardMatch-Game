@@ -74,7 +74,7 @@ struct GameView: View {
                             
                         }
                         
-                        if showingLevelAlert {
+                        if (showingLevelAlert && !viewModel.showSuccessAlert) {
                             GameLevelAlert
                         }
                         
@@ -86,6 +86,7 @@ struct GameView: View {
                 
             }.navigationBarBackButtonHidden(true)
                 .navigationBarItems(leading: Button(action : {
+                    viewModel.showSuccessAlert = false
                     self.mode.wrappedValue.dismiss()
                     self.viewModel.updateMatchGame(level: .EASY)
                 }){
