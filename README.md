@@ -9,4 +9,4 @@ CardMatch-Game App does not collect any personal information from any of your us
 
 
 App uses images from below source 
-<a href=“https://www.freepik.com/free-vector/illustration-education-concept_2922224.htm#query=alphabets&position=22&from_view=search&track=sph”>Image by rawpixel.com</a> on Freepik
+Image by [Rawpixel] on Freepik (https://www.freepik.com/free-vector/illustration-education-concept_2922224.htm#query=alphabets&position=22)
