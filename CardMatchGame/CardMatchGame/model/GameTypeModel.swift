@@ -11,8 +11,8 @@ struct GameTypeModel : Identifiable {
     
     var id: Int
     var gameName: String
-    var iconsArray: [String]
     var bgColorCode: String
     var fgColorCode: String
+    var gameVM: GameVM
     
 }

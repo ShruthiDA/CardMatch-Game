@@ -53,11 +53,11 @@ enum AlertType {
     
     func height(isShowVerticalButtons: Bool = false) -> CGFloat {
         return 330
-//     switch self {
-//        case .success:
-//            return isShowVerticalButtons ? 400 : 400
-//        case .error(_, _):
-//            return isShowVerticalButtons ? 220 : 350
-//        }
+        //     switch self {
+        //        case .success:
+        //            return isShowVerticalButtons ? 400 : 400
+        //        case .error(_, _):
+        //            return isShowVerticalButtons ? 220 : 350
+        //        }
     }
 }

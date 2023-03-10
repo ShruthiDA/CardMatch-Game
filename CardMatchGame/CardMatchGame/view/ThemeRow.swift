@@ -13,9 +13,9 @@ struct ThemeRow: View {
     var themeColorSet : ThemeColorSet
     
     @Binding var selectedTheme: ThemeColorSet?
-   
+    
     @Binding var selectedThemeID: Int
-
+    
     
     var body: some View {
         
@@ -32,7 +32,7 @@ struct ThemeRow: View {
                 .fill(Color(hex: themeColorSet.c5))
             
         }.frame(height: 20).padding(5)
-            .border(themeColorSet.id == selectedThemeID ? Color.black : Color.clear)
+            .border(themeColorSet.id == selectedThemeID ? Color("titleTxtColor") : Color.clear)
             .onTapGesture {
                 self.selectedTheme = self.themeColorSet
                 self.selectedThemeID = self.themeColorSet.id

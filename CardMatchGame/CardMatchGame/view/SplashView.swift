@@ -28,19 +28,40 @@ struct SplashView: View {
                         NavigationLink(destination: MainView().navigationBarBackButtonHidden(true)) {
                             
                             HStack {
-                                Image(systemName: "play.circle")
-                                    .font(.largeTitle)
-                                    .foregroundColor(Color("btnEndColor"))
-                                Text("PLAY NOW")
+//                                Image(systemName: "play.circle")
+//                                    .font(.title)
+//                                    .foregroundColor(Color("btnEndColor"))
+                                Text("CARD MATCH")
                                     .fontWeight(.bold)
-                                    .font(.title).foregroundColor(Color("btnEndColor"))
+                                    .font(.title2).foregroundColor(Color("btnEndColor"))
                             }
                             .frame(minWidth: 0, maxWidth: .infinity)
                             .padding()
                             .foregroundColor(.white)
                             .background(LinearGradient(gradient: Gradient(colors: [.white, .white]), startPoint: .leading, endPoint: .trailing))
-                            .cornerRadius(40)
-                        }.padding(.vertical, 20)
+                            .cornerRadius(30)
+                        }.padding(.vertical, 10)
+                    }
+                    
+                    Button(action: {
+                        print("Tic Tac Toe tapped")
+                    }) {
+                        NavigationLink(destination: TicTacToeView().navigationBarBackButtonHidden(true)) {
+                            HStack {
+//                                Image(systemName: "play.circle")
+//                                    .font(.title)
+//                                 .foregroundColor(Color("btnEndColor"))
+                                Text("TIC TAC TOE")
+                                    .fontWeight(.bold)
+                                    .font(.title2).foregroundColor(Color("btnEndColor"))
+                            }
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(LinearGradient(gradient: Gradient(colors: [.white, .white]),
+                                                       startPoint: .leading, endPoint: .trailing))
+                            .cornerRadius(30)
+                        }.padding(.vertical, 10)
                     }
                     
                     Button(action: {
@@ -48,19 +69,19 @@ struct SplashView: View {
                     }) {
                         NavigationLink(destination: SettingView().navigationBarBackButtonHidden(true)) {
                             HStack {
-                                Image(systemName: "gearshape.circle")
-                                    .font(.largeTitle)
-                                 .foregroundColor(Color("btnEndColor"))
+//                                Image(systemName: "gearshape.circle")
+//                                    .font(.title)
+//                                 .foregroundColor(Color("btnEndColor"))
                                 Text("SETTINGS")
                                     .fontWeight(.bold)
-                                    .font(.title).foregroundColor(Color("btnEndColor"))
+                                    .font(.title2).foregroundColor(Color("btnEndColor"))
                             }
                             .frame(minWidth: 0, maxWidth: .infinity)
                             .padding()
                             .foregroundColor(.white)
                             .background(LinearGradient(gradient: Gradient(colors: [.white, .white]),
                                                        startPoint: .leading, endPoint: .trailing))
-                            .cornerRadius(40)
+                            .cornerRadius(30)
                         }.padding(.vertical, 10)
                     }
                 }.padding(30)

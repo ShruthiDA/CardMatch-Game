@@ -12,7 +12,6 @@ struct SettingView: View {
     @ObservedObject
     var viewmodel = SettingVM()
     
-    
     @State var selectedTheme: ThemeColorSet? = ThemeColorSet(id: 1, c1: "CAE7E3",c2: "B2B2B2",c3: "EEB8C5",c4: "DCDBD9",c5: "F7F6CF")
     
     @AppStorage("selectedThemeID") private var themeID = 1
@@ -32,8 +31,10 @@ struct SettingView: View {
                 Toggle(isOn: $isSoundEnabled) {
                     Text("Sound Enabled")
                 }
-                Image(systemName: isSoundEnabled ? "speaker.1.fill" : "speaker.slash.fill")
-                    .font(.system(size: 56))
+                Image(isSoundEnabled ? "volume" : "mute")
+                    .resizable()
+                    .frame(width: 60, height: 60)
+                    .aspectRatio(contentMode: .fit)
                     .padding()
             }.padding()
             
@@ -46,13 +47,14 @@ struct SettingView: View {
                         
                         ThemeRow(themeColorSet: theme, selectedTheme: self.$selectedTheme, selectedThemeID: $themeID)
                                                 .listRowSeparator(.hidden)
-                                              .listRowBackground(Color.white)
+                                              //.listRowBackground(Color.white)
                         
             
                     }
                 }.frame(maxWidth: .infinity)
                                 .edgesIgnoringSafeArea(.all)
-                                .listStyle(PlainListStyle()).background(Color.white)
+                                .listStyle(PlainListStyle())
+                                //.background(Color.white)
                 
                 
                 
@@ -63,7 +65,10 @@ struct SettingView: View {
             .navigationBarItems(leading: Button(action : {
                 self.mode.wrappedValue.dismiss()
             }){
-                Image(systemName: "chevron.left")
+                Image("back-arrow")
+                  .resizable()
+                  .frame(width: 25, height: 20)
+                  .aspectRatio(contentMode: .fit)
             }).navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
@@ -71,7 +76,7 @@ struct SettingView: View {
                         Text("Settings").font(.title)
                     }
                 }
-            }.foregroundColor(Color(hex: "#575859"))
+            }.foregroundColor(Color("titleTxtColor"))
     }
 }
 

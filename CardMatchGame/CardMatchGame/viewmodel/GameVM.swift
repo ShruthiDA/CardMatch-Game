@@ -14,19 +14,27 @@ class GameVM: ObservableObject {
     var inputLevel: GameLevel = .EASY
     var iconArray: [String] = []
     var cardsColor: String = ""
+    var gameName: String = ""
     
     @Published
     var matchGame : GameModel<String> = GameModel<String>(noOfCards: 0)
     
     
-    init(emojiArray: [String],cardsColor: String ){
+    init(emojiArray: [String],cardsColor: String, gameName: String){
+        //print("....init. ")
         self.iconArray = emojiArray.shuffled()
         self.cardsColor = cardsColor
-        updateMatchGame(level: inputLevel)
+        self.gameName = gameName
+        //initially number of cards is 6 only
     }
     
+    func createView(){
+       // print("....createView calledddd. ")
+        self.matchGame =  GameModel<String>(noOfCards: 6,  cardContent: { iconIndex in iconArray[iconIndex]})
+    }
     
     func updateMatchGame(level: GameLevel) {
+        //print("updateMatchGame..... ")
         var cardNo = 0
         inputLevel = level
         if(level == GameLevel.EASY){

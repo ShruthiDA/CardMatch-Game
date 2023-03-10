@@ -31,7 +31,7 @@ struct CustomAlert: View {
             // faded background
             Color.black.opacity(0.25)
                 .edgesIgnoringSafeArea(.all)
-         
+            
             VStack(spacing: 0) {
                 
                 if alertType.title() != "" {
@@ -39,8 +39,8 @@ struct CustomAlert: View {
                     // alert title
                     //Text(alertType.title())
                     Text("Game Completed")
-                        .font(.system(size: 16, weight: .bold))
-                        .foregroundColor(.black)
+                        .font(.system(size: 18, weight: .bold))
+                        .foregroundColor(Color("alertTxtColor"))
                         .multilineTextAlignment(.center)
                         .frame(height: 25)
                         .padding(.top, 10)
@@ -62,25 +62,25 @@ struct CustomAlert: View {
                                 leftButtonAction?()
                             } label: {
                                 Text(alertType.leftActionText)
-                                    .font(.system(size: 16, weight: .bold))
-                                    .foregroundColor(.green)
+                                    .font(.system(size: 18, weight: .bold))
+                                    .foregroundColor(.blue)
                                     .multilineTextAlignment(.center)
                                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                             }
                             Spacer()
                             
-                            Divider()
+                            Divider().background(Color("alertTxtColor")).padding(.vertical, 10)
                             
                             Spacer()
                             Button {
                                 rightButtonAction?()
                             } label: {
                                 Text(alertType.rightActionText)
-                                    .font(.system(size: 16, weight: .bold))
-                                    .foregroundColor(.green)
+                                    .font(.system(size: 18, weight: .bold))
+                                    .foregroundColor(.blue)
                                     .multilineTextAlignment(.center)
                                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                            }
+                            }.padding(.bottom, 10)
                             Spacer()
                             
                         }
@@ -92,18 +92,13 @@ struct CustomAlert: View {
                     .padding([.horizontal, .bottom], 0)
                     
                 }
-
+                
             }
-           .frame(width: 270, height: alertType.height(isShowVerticalButtons: true))
-            .background(
-                Color.white
-            )
-            .cornerRadius(40)
-        }
-
+            .frame(width: 270, height: alertType.height(isShowVerticalButtons: true))
+            .background(Color("alertBgColor"))
+            .cornerRadius(30)
         }
         
     }
-
-
-
+    
+}
