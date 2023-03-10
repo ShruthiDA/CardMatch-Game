@@ -7,18 +7,80 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		141CF65C2981823F00AEB079 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141CF65B2981823F00AEB079 /* AppDelegate.swift */; };
+		145ECCA429635B6C0093C9A0 /* game_complete_star.json in Resources */ = {isa = PBXBuildFile; fileRef = 145ECC9F29635B6C0093C9A0 /* game_complete_star.json */; };
+		145ECCA529635B6C0093C9A0 /* pink_check.json in Resources */ = {isa = PBXBuildFile; fileRef = 145ECCA029635B6C0093C9A0 /* pink_check.json */; };
+		145ECCA629635B6C0093C9A0 /* game_complete_1.json in Resources */ = {isa = PBXBuildFile; fileRef = 145ECCA129635B6C0093C9A0 /* game_complete_1.json */; };
+		145ECCA729635B6C0093C9A0 /* star_cards.json in Resources */ = {isa = PBXBuildFile; fileRef = 145ECCA229635B6C0093C9A0 /* star_cards.json */; };
+		145ECCA829635B6C0093C9A0 /* gamecomplete.json in Resources */ = {isa = PBXBuildFile; fileRef = 145ECCA329635B6C0093C9A0 /* gamecomplete.json */; };
+		145ECCAC29635B7C0093C9A0 /* GameVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145ECCA929635B7C0093C9A0 /* GameVM.swift */; };
+		145ECCAD29635B7C0093C9A0 /* MainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145ECCAA29635B7C0093C9A0 /* MainVM.swift */; };
+		145ECCAE29635B7C0093C9A0 /* SettingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145ECCAB29635B7C0093C9A0 /* SettingVM.swift */; };
+		145ECCB929635B920093C9A0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145ECCAF29635B920093C9A0 /* MainView.swift */; };
+		145ECCBA29635B920093C9A0 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145ECCB029635B920093C9A0 /* SplashView.swift */; };
+		145ECCBB29635B920093C9A0 /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145ECCB129635B920093C9A0 /* AlertType.swift */; };
+		145ECCBC29635B920093C9A0 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145ECCB229635B920093C9A0 /* GameView.swift */; };
+		145ECCBD29635B920093C9A0 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145ECCB329635B920093C9A0 /* CustomAlert.swift */; };
+		145ECCBE29635B920093C9A0 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145ECCB429635B920093C9A0 /* LottieView.swift */; };
+		145ECCBF29635B920093C9A0 /* GameListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145ECCB529635B920093C9A0 /* GameListRow.swift */; };
+		145ECCC029635B920093C9A0 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145ECCB629635B920093C9A0 /* SettingView.swift */; };
+		145ECCC129635B920093C9A0 /* ShakeAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145ECCB729635B920093C9A0 /* ShakeAnim.swift */; };
+		145ECCC229635B920093C9A0 /* ThemeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145ECCB829635B920093C9A0 /* ThemeRow.swift */; };
+		145ECCC829635BD40093C9A0 /* GameTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145ECCC429635BD40093C9A0 /* GameTypeModel.swift */; };
+		145ECCC929635BD40093C9A0 /* ThemeColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145ECCC529635BD40093C9A0 /* ThemeColorSet.swift */; };
+		145ECCCA29635BD40093C9A0 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145ECCC629635BD40093C9A0 /* GameModel.swift */; };
+		145ECCCB29635BD40093C9A0 /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145ECCC729635BD40093C9A0 /* MemoryGame.swift */; };
+		145ECCCE29635D310093C9A0 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 145ECCCD29635D310093C9A0 /* Lottie */; };
+		145ECCD1297A5B840093C9A0 /* TicTacToeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145ECCD0297A5B840093C9A0 /* TicTacToeView.swift */; };
+		145ECCD3297A5CAD0093C9A0 /* TicTacToeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145ECCD2297A5CAD0093C9A0 /* TicTacToeVM.swift */; };
+		145ECCD5297A69010093C9A0 /* SquareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145ECCD4297A69010093C9A0 /* SquareModel.swift */; };
+		145ECCD7298050220093C9A0 /* TicTacToeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145ECCD6298050220093C9A0 /* TicTacToeModel.swift */; };
 		148D1CE629635533006CEC25 /* CardMatchGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148D1CE529635533006CEC25 /* CardMatchGameApp.swift */; };
-		148D1CE829635533006CEC25 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148D1CE729635533006CEC25 /* ContentView.swift */; };
 		148D1CEA29635534006CEC25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 148D1CE929635534006CEC25 /* Assets.xcassets */; };
 		148D1CED29635534006CEC25 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 148D1CEC29635534006CEC25 /* Preview Assets.xcassets */; };
+		148D1CF729635754006CEC25 /* tap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 148D1CF329635753006CEC25 /* tap.mp3 */; };
+		148D1CF829635754006CEC25 /* flipcard.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 148D1CF429635754006CEC25 /* flipcard.mp3 */; };
+		148D1CF929635754006CEC25 /* success.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 148D1CF529635754006CEC25 /* success.mp3 */; };
+		148D1CFA29635754006CEC25 /* click-sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 148D1CF629635754006CEC25 /* click-sound.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		141CF65B2981823F00AEB079 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		145ECC9F29635B6C0093C9A0 /* game_complete_star.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = game_complete_star.json; sourceTree = "<group>"; };
+		145ECCA029635B6C0093C9A0 /* pink_check.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pink_check.json; sourceTree = "<group>"; };
+		145ECCA129635B6C0093C9A0 /* game_complete_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = game_complete_1.json; sourceTree = "<group>"; };
+		145ECCA229635B6C0093C9A0 /* star_cards.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = star_cards.json; sourceTree = "<group>"; };
+		145ECCA329635B6C0093C9A0 /* gamecomplete.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gamecomplete.json; sourceTree = "<group>"; };
+		145ECCA929635B7C0093C9A0 /* GameVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameVM.swift; sourceTree = "<group>"; };
+		145ECCAA29635B7C0093C9A0 /* MainVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVM.swift; sourceTree = "<group>"; };
+		145ECCAB29635B7C0093C9A0 /* SettingVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingVM.swift; sourceTree = "<group>"; };
+		145ECCAF29635B920093C9A0 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		145ECCB029635B920093C9A0 /* SplashView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		145ECCB129635B920093C9A0 /* AlertType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
+		145ECCB229635B920093C9A0 /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		145ECCB329635B920093C9A0 /* CustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		145ECCB429635B920093C9A0 /* LottieView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		145ECCB529635B920093C9A0 /* GameListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameListRow.swift; sourceTree = "<group>"; };
+		145ECCB629635B920093C9A0 /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		145ECCB729635B920093C9A0 /* ShakeAnim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeAnim.swift; sourceTree = "<group>"; };
+		145ECCB829635B920093C9A0 /* ThemeRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeRow.swift; sourceTree = "<group>"; };
+		145ECCC429635BD40093C9A0 /* GameTypeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTypeModel.swift; sourceTree = "<group>"; };
+		145ECCC529635BD40093C9A0 /* ThemeColorSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeColorSet.swift; sourceTree = "<group>"; };
+		145ECCC629635BD40093C9A0 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		145ECCC729635BD40093C9A0 /* MemoryGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
+		145ECCCF29683BE60093C9A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		145ECCD0297A5B840093C9A0 /* TicTacToeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeView.swift; sourceTree = "<group>"; };
+		145ECCD2297A5CAD0093C9A0 /* TicTacToeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeVM.swift; sourceTree = "<group>"; };
+		145ECCD4297A69010093C9A0 /* SquareModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareModel.swift; sourceTree = "<group>"; };
+		145ECCD6298050220093C9A0 /* TicTacToeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeModel.swift; sourceTree = "<group>"; };
 		148D1CE229635533006CEC25 /* CardMatchGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardMatchGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		148D1CE529635533006CEC25 /* CardMatchGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMatchGameApp.swift; sourceTree = "<group>"; };
-		148D1CE729635533006CEC25 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		148D1CE929635534006CEC25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		148D1CEC29635534006CEC25 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		148D1CF329635753006CEC25 /* tap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tap.mp3; sourceTree = "<group>"; };
+		148D1CF429635754006CEC25 /* flipcard.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = flipcard.mp3; sourceTree = "<group>"; };
+		148D1CF529635754006CEC25 /* success.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = success.mp3; sourceTree = "<group>"; };
+		148D1CF629635754006CEC25 /* click-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "click-sound.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,12 +88,67 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				145ECCCE29635D310093C9A0 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		145ECC9C29635B410093C9A0 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				145ECCB129635B920093C9A0 /* AlertType.swift */,
+				145ECCB329635B920093C9A0 /* CustomAlert.swift */,
+				145ECCB529635B920093C9A0 /* GameListRow.swift */,
+				145ECCB229635B920093C9A0 /* GameView.swift */,
+				145ECCB429635B920093C9A0 /* LottieView.swift */,
+				145ECCAF29635B920093C9A0 /* MainView.swift */,
+				145ECCB629635B920093C9A0 /* SettingView.swift */,
+				145ECCB729635B920093C9A0 /* ShakeAnim.swift */,
+				145ECCB029635B920093C9A0 /* SplashView.swift */,
+				145ECCB829635B920093C9A0 /* ThemeRow.swift */,
+				145ECCD0297A5B840093C9A0 /* TicTacToeView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		145ECC9D29635B490093C9A0 /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				145ECCA929635B7C0093C9A0 /* GameVM.swift */,
+				145ECCAA29635B7C0093C9A0 /* MainVM.swift */,
+				145ECCAB29635B7C0093C9A0 /* SettingVM.swift */,
+				145ECCD2297A5CAD0093C9A0 /* TicTacToeVM.swift */,
+			);
+			path = viewmodel;
+			sourceTree = "<group>";
+		};
+		145ECC9E29635B520093C9A0 /* lottie */ = {
+			isa = PBXGroup;
+			children = (
+				145ECCA129635B6C0093C9A0 /* game_complete_1.json */,
+				145ECC9F29635B6C0093C9A0 /* game_complete_star.json */,
+				145ECCA329635B6C0093C9A0 /* gamecomplete.json */,
+				145ECCA029635B6C0093C9A0 /* pink_check.json */,
+				145ECCA229635B6C0093C9A0 /* star_cards.json */,
+			);
+			path = lottie;
+			sourceTree = "<group>";
+		};
+		145ECCC329635BC00093C9A0 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				145ECCC629635BD40093C9A0 /* GameModel.swift */,
+				145ECCC429635BD40093C9A0 /* GameTypeModel.swift */,
+				145ECCC729635BD40093C9A0 /* MemoryGame.swift */,
+				145ECCC529635BD40093C9A0 /* ThemeColorSet.swift */,
+				145ECCD4297A69010093C9A0 /* SquareModel.swift */,
+				145ECCD6298050220093C9A0 /* TicTacToeModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		148D1CD929635533006CEC25 = {
 			isa = PBXGroup;
 			children = (
@@ -51,10 +168,19 @@
 		148D1CE429635533006CEC25 /* CardMatchGame */ = {
 			isa = PBXGroup;
 			children = (
+				145ECCCF29683BE60093C9A0 /* Info.plist */,
+				145ECCC329635BC00093C9A0 /* model */,
+				145ECC9E29635B520093C9A0 /* lottie */,
+				145ECC9D29635B490093C9A0 /* viewmodel */,
+				145ECC9C29635B410093C9A0 /* view */,
+				148D1CF629635754006CEC25 /* click-sound.mp3 */,
+				148D1CF429635754006CEC25 /* flipcard.mp3 */,
+				148D1CF529635754006CEC25 /* success.mp3 */,
+				148D1CF329635753006CEC25 /* tap.mp3 */,
 				148D1CE529635533006CEC25 /* CardMatchGameApp.swift */,
-				148D1CE729635533006CEC25 /* ContentView.swift */,
 				148D1CE929635534006CEC25 /* Assets.xcassets */,
 				148D1CEB29635534006CEC25 /* Preview Content */,
+				141CF65B2981823F00AEB079 /* AppDelegate.swift */,
 			);
 			path = CardMatchGame;
 			sourceTree = "<group>";
@@ -83,6 +209,9 @@
 			dependencies = (
 			);
 			name = CardMatchGame;
+			packageProductDependencies = (
+				145ECCCD29635D310093C9A0 /* Lottie */,
+			);
 			productName = CardMatchGame;
 			productReference = 148D1CE229635533006CEC25 /* CardMatchGame.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +240,9 @@
 				Base,
 			);
 			mainGroup = 148D1CD929635533006CEC25;
+			packageReferences = (
+				145ECCCC29635D310093C9A0 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 148D1CE329635533006CEC25 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,8 +257,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				145ECCA829635B6C0093C9A0 /* gamecomplete.json in Resources */,
+				148D1CF729635754006CEC25 /* tap.mp3 in Resources */,
+				145ECCA729635B6C0093C9A0 /* star_cards.json in Resources */,
 				148D1CED29635534006CEC25 /* Preview Assets.xcassets in Resources */,
+				148D1CF929635754006CEC25 /* success.mp3 in Resources */,
 				148D1CEA29635534006CEC25 /* Assets.xcassets in Resources */,
+				145ECCA629635B6C0093C9A0 /* game_complete_1.json in Resources */,
+				148D1CF829635754006CEC25 /* flipcard.mp3 in Resources */,
+				148D1CFA29635754006CEC25 /* click-sound.mp3 in Resources */,
+				145ECCA529635B6C0093C9A0 /* pink_check.json in Resources */,
+				145ECCA429635B6C0093C9A0 /* game_complete_star.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +278,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				148D1CE829635533006CEC25 /* ContentView.swift in Sources */,
+				145ECCCB29635BD40093C9A0 /* MemoryGame.swift in Sources */,
+				145ECCAC29635B7C0093C9A0 /* GameVM.swift in Sources */,
+				145ECCAD29635B7C0093C9A0 /* MainVM.swift in Sources */,
+				145ECCD3297A5CAD0093C9A0 /* TicTacToeVM.swift in Sources */,
+				145ECCD7298050220093C9A0 /* TicTacToeModel.swift in Sources */,
+				145ECCD1297A5B840093C9A0 /* TicTacToeView.swift in Sources */,
+				145ECCC129635B920093C9A0 /* ShakeAnim.swift in Sources */,
 				148D1CE629635533006CEC25 /* CardMatchGameApp.swift in Sources */,
+				145ECCBF29635B920093C9A0 /* GameListRow.swift in Sources */,
+				145ECCBD29635B920093C9A0 /* CustomAlert.swift in Sources */,
+				145ECCB929635B920093C9A0 /* MainView.swift in Sources */,
+				145ECCAE29635B7C0093C9A0 /* SettingVM.swift in Sources */,
+				145ECCBA29635B920093C9A0 /* SplashView.swift in Sources */,
+				145ECCBE29635B920093C9A0 /* LottieView.swift in Sources */,
+				145ECCC029635B920093C9A0 /* SettingView.swift in Sources */,
+				145ECCBC29635B920093C9A0 /* GameView.swift in Sources */,
+				145ECCC929635BD40093C9A0 /* ThemeColorSet.swift in Sources */,
+				145ECCC829635BD40093C9A0 /* GameTypeModel.swift in Sources */,
+				145ECCC229635B920093C9A0 /* ThemeRow.swift in Sources */,
+				145ECCD5297A69010093C9A0 /* SquareModel.swift in Sources */,
+				145ECCBB29635B920093C9A0 /* AlertType.swift in Sources */,
+				145ECCCA29635BD40093C9A0 /* GameModel.swift in Sources */,
+				141CF65C2981823F00AEB079 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,27 +426,33 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CardMatchGame/Preview Content\"";
-				DEVELOPMENT_TEAM = JUTKG8RJ59;
+				DEVELOPMENT_TEAM = 5X6Q328GUD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CardMatchGame/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.monstarlab.game.CardMatchGame;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.monstar-lab.cardmatchgame";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -293,27 +461,33 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CardMatchGame/Preview Content\"";
-				DEVELOPMENT_TEAM = JUTKG8RJ59;
+				DEVELOPMENT_TEAM = 5X6Q328GUD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CardMatchGame/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.monstarlab.game.CardMatchGame;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.monstar-lab.cardmatchgame";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -339,6 +513,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		145ECCCC29635D310093C9A0 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		145ECCCD29635D310093C9A0 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 145ECCCC29635D310093C9A0 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 148D1CDA29635533006CEC25 /* Project object */;
 }
